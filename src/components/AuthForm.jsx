@@ -1,4 +1,10 @@
 import React, {useState} from "react";
+import styled from "styled-components";
+
+const Container = styled.div`
+width: 50vw;
+margin: 100px auto;
+`
 
 const socailData = [
   {
@@ -14,19 +20,67 @@ const socailData = [
 ];
 
 const AuthForm = ({ type, setFormType }) => {
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
+  // const [firstName, setFirstName] = useState('')
+  // const [lastName, setLastName] = useState('')
+  const [inputValue, setInputValue] = useState({
+    firstName : '',
+    lastName : '',
+    email : '',
+    password : ''
+  })
 
   const handleSubmit = (e) => {
-    if(firstName !== ''){
+    if(inputValue !== ''){
     e.preventDefault();
-    alert(`${firstName}`)
-    setFirstName('')
+    alert(`${inputValue.firstName}`)
+    setInputValue('')
     }
+
+  }
+  
+  const handleChange = (e) => {
+    const value = e.target.value
+    const name = e.target.name
+
+    setInputValue((preValue)=>{
+      console.log(preValue);
+      if(name === 'firstName'){
+        return {
+          firstName : value,
+          lastName : preValue.name,
+          email : preValue.name,
+          password : preValue.name
+        };
+      }
+      else if(name === 'lastName'){
+        return {
+          firstName : preValue.name,
+          lastName : value,
+          email : preValue.name,
+          password : preValue.name
+        };
+      }
+      else if(name === 'email'){
+        return {
+          firstName : preValue.name,
+          lastName : preValue.name,
+          email : value,
+          password : preValue.name
+        };
+    }
+        else if(name === 'password'){
+          return {
+            firstName : preValue.name,
+            lastName : preValue.name,
+            email : preValue.name,
+            password : value
+          };
+      }
+    })
   }
 
   return (
-    <div className="wrapper_form">
+    <Container className="wrapper_form">
       <div className="modal_heading">
         <div className="h3 m-0">
           {type === "SignUp" ? "Create Account" : "Sign In"}
@@ -68,16 +122,18 @@ const AuthForm = ({ type, setFormType }) => {
                 <input
                   className="m-0 br-tl" 
                   placeholder="First Name"
+                  name="firstName"
                   type="text"
-                  value={firstName}
-                  onChange={(e)=>setFirstName(e.target.value)}
+                  value={inputValue.firstName}
+                  onChange={handleChange}
                 />
                 <input
                   className="m-0 br-tr"
                   placeholder="Last Name"
+                  name="lastName"
                   type="text"
-                  value={lastName}
-                  onChange={(e)=>setLastName(e.target.value)}
+                  value={inputValue.lastName}
+                  onChange={handleChange}
                 />
               </div>
             )}
@@ -85,12 +141,18 @@ const AuthForm = ({ type, setFormType }) => {
               <input
                 className={`m-0 ${type === "SignIn" ? "br-t" : ""}`}
                 placeholder="Email"
+                name="email"
+                onChange={handleChange}
+                value={inputValue.email}
                 type="text"
               />
               <span className="eye">
                 <input
                   className={`m-0 ${type === "SignIn" ? "br-b" : ""}`}
                   placeholder="Password"
+                  name="password"
+                  onChange={handleChange}
+                  value={inputValue.password}
                   type="text"
                 />
                 {/* <img
@@ -149,7 +211,7 @@ const AuthForm = ({ type, setFormType }) => {
           )}
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 
