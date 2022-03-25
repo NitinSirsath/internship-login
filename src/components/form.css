@@ -1,0 +1,158 @@
+.modal_container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .heading_box_form {
+    width: 100%;
+    height: 50px;
+    background-color: #effff4;
+  }
+  
+  .heading_form {
+    color: #008a45;
+    text-align: center;
+  }
+  
+  .wrapper_form {
+    padding: 0 36px 36px 36px;
+  
+    /* height: 80%; */
+  }
+  
+  .left_form {
+    flex: 0.5;
+  }
+  .left_form input {
+    flex: 1;
+  }
+  
+  .right_form {
+    flex: 0.5;
+  }
+  
+  .c-grid {
+    display: grid;
+    place-items: center;
+  }
+  
+  /* .signup_form_wrapper {
+    width: 366px;
+  } */
+  
+  .signup_form_wrapper input {
+    /* height: 46px; */
+    background-color: #f7f8fa;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid grey;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+    border-top: 1px solid grey;
+    padding: 15px 12px;
+  }
+  .br-tl {
+    border-radius: 2px 0 0 0;
+  }
+  .br-tr {
+    border-radius: 0 2px 0 0;
+  }
+  .br-b {
+    border-radius: 0 0 2px 2px;
+  }
+  .br-t {
+    border-radius: 2px 2px 0 0;
+  }
+  
+  .form_one {
+    width: 100%;
+  }
+  
+  .form_two {
+    width: 100%;
+    /* width: 320px; */
+  }
+  
+  .modal_heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 24px 0;
+  }
+  
+  .auth_cta {
+    margin-top: 19px;
+  }
+  .auth_social_wrapper {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .auth_social_cta {
+    font-size: 14px;
+  }
+  
+  .btn-outline-secondary:hover {
+    color: black !important;
+    background-color: transparent !important;
+    text-decoration: none;
+  }
+  .eye {
+    position: relative;
+    display: flex;
+  }
+  
+  .img_eye {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+  }
+  
+  .small_tip {
+    margin-left: 27px;
+    font-size: 12px;
+  }
+  
+  .close_modal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #363636;
+    border-radius: 50%;
+    color: #fff;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+  }
+  .cta-flex {
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-message {
+    display: none;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .right_form {
+      display: none;
+    }
+    .close_modal {
+      display: none;
+    }
+    .cta-flex {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .mobile-message {
+      text-align: right;
+      display: block;
+      margin: 0;
+    }
+  }
